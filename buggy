@@ -26,7 +26,6 @@ git clone https://github.com/aboul3la/Sublist3r.git
   cd Sublist3r
     sudo pip install -r requirements.txt
 
-
 #enumall
 #PREESTEPS
 #recon-ng
@@ -36,10 +35,14 @@ git clone https://github.com/aboul3la/Sublist3r.git
         ln -s /$recon-ng_path /usr/share/recon-ng
          cd ..
 #alt-dns
+echo downloading alt-dns from github 
   git clone https://github.com/infosec-au/altdns.git
-   cd altdns
+    cd altdns
+echo installing alt-dns
     pip install py-altdns
+
 #wordlist's
+echo adding som wordlist's
       git clone https://github.com/danielmiessler/SecLists/blob/master/Discovery/DNS/sortedcombined-knock-dnsrecon-fierce-reconng.txt
         echo edit the congig file and specify the path to recon and alt-dns
          cd ..
@@ -64,7 +67,6 @@ git clone https://github.com/rbsec/dnscan.git
 git clone https://github.com/guelfoweb/knock.git
   cd knock
    sudo pip install https://github.com/guelfoweb/knock/archive/knock4.zip
-
 
 ##Port scan
 
