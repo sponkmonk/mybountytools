@@ -9,9 +9,35 @@ clear
 
 #update
 sudo apt update && sudo apt full-upgrade -y
+
+echo "[*]create default core tools directory"
+mkdir /opt/$mydirectory
+cd /opt/$mydirectory/
+mkdir /opt/$mydirectory/cheatsheets
+mkdir /opt/$mydirectory/network
+mkdir /opt/$mydirectory/webapps
+mkdir /opt/$mydirectory/exploits
+mkdir /opt/$mydirectory/mobile
+mkdir /opt/$mydirectory/wordlists
+mkdir /opt/$mydirectory/escalation
+mkdir /opt/$mydirectory/pwcracking
+mkdir /opt/$mydirectory/reverse
+mkdir /opt/$mydirectory/recon
+mkdir /opt/$mydirectory/wireless
+mkdir /opt/$mydirectory/windows
+mkdir /opt/$mydirectory/linux
+mkdir /opt/$mydirectory/postexploitation
+mkdir /opt/$mydirectory/social_engineering
+
 #install some shit
 sudo apt install git curl wget gdebi python-virtualenv /
 python-pip gcc make libpcap-dev golang-go
+
+#install metasploit
+echo "[*]gather the metasploit repository"
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && \
+  chmod 755 msfinstall && \
+  ./msfinstall
 
 #install Chrome
 echo "[*] Install Chrome.[*]"
@@ -26,6 +52,15 @@ apt -qq install gnupg2 -y
 curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 curl -L https://get.rvm.io | bash -s stable --ruby
 echo "source /usr/local/rvm/scripts/rvm" >> ~/.bashrc
+
+echo "[*]wordlists gathering"
+cd /opt/$mydirectory/wordlists
+git clone https://github.com/danielmiessler/SecLists.git
+wget -nc http://downloads.skullsecurity.org/passwords/rockyou.txt.bz2
+wget -nc http://www.tekdefense.com/downloads/wordlists/1aNormusWL.zip
+wget -nc http://www.tekdefense.com/downloads/wordlists/KippoWordlist.txt
+git clone https://github.com/digininja/CeWL.git
+cd /opt/$mydirectory
 
 #####Recon Tools
 
