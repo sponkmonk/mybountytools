@@ -1,23 +1,23 @@
-
+#update
 sudo apt update && sudo apt full-upgrade -y
+#install some shit
 sudo apt install git curl wget gdebi python-virtualenv python-pip gcc make libpcap-dev
 
-
+#install Chrome
 echo "[*] Install Chrome.[*]"
 wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/
 dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
-apt-get -f install -y
+apt -f install -y
 dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
 
+#install Ruby
 echo "[*] Install Ruby[*]"
-apt-get -qq install gnupg2 -y
+apt -qq install gnupg2 -y
 curl -sSL https://rvm.io/mpapis.asc | gpg --import -
 curl -L https://get.rvm.io | bash -s stable --ruby
 echo "source /usr/local/rvm/scripts/rvm" >> ~/.bashrc
 
-
-
-#####Recon
+#####Recon Tools
 
 ##DNS Discovery
 
@@ -75,7 +75,7 @@ sudo apt install nmap
 git clone https://github.com/robertdavidgraham/masscan.git
  cd masscan
   make -j
-   make install
+   sudo make install
 
 ##Screenshots
 
