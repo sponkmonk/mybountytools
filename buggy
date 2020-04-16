@@ -35,7 +35,7 @@ git clone https://github.com/aboul3la/Sublist3r.git
         ln -s /$recon-ng_path /usr/share/recon-ng
          cd ..
 #alt-dns
-echo downloading alt-dns from github 
+echo downloading alt-dns from github
   git clone https://github.com/infosec-au/altdns.git
     cd altdns
 echo installing alt-dns
@@ -82,7 +82,13 @@ git clone https://github.com/robertdavidgraham/masscan.git
 ##Screenshots
 
 EyeWitness
-https://github.com/ChrisTruncer/EyeWitness
+gir clone https://github.com/ChrisTruncer/EyeWitness
+ cd Eyewitness
+  cd python
+   cd setup
+    chmod +x setyp.py
+    cd ..
+    
 httpscreenshot
 https://github.com/breenmachine/httpscreenshot/
 
