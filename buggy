@@ -1,7 +1,8 @@
 #update
 sudo apt update && sudo apt full-upgrade -y
 #install some shit
-sudo apt install git curl wget gdebi python-virtualenv python-pip gcc make libpcap-dev
+sudo apt install git curl wget gdebi python-virtualenv /
+python-pip gcc make libpcap-dev golang-go
 
 #install Chrome
 echo "[*] Install Chrome.[*]"
@@ -57,17 +58,21 @@ git clone https://github.com/anshumanbh/brutesubs.git
 
 #dns-parallel-prober
 gir clone https://github.com/lorenzog/dns-parallel-prober.git
-  pip install -r requirements.txt
+  cd dns-parallel-prober
+   pip install -r requirements.txt
+  cd ..
 
 #dnscan
 git clone https://github.com/rbsec/dnscan.git
- pip install -r requirements.txt
+ cd dnscan
+  pip install -r requirements.txt
+   cd ..
 
 #Knockpy
 git clone https://github.com/guelfoweb/knock.git
   cd knock
    sudo pip install https://github.com/guelfoweb/knock/archive/knock4.zip
-
+ cd ..
 ##Port scan
 
 #nmap
@@ -78,52 +83,95 @@ git clone https://github.com/robertdavidgraham/masscan.git
  cd masscan
   make -j
    sudo make install
+ cd ..
 
 ##Screenshots
-
+echo downloading Eyewitness from github
 EyeWitness
-gir clone https://github.com/ChrisTruncer/EyeWitness
- cd Eyewitness
-  cd python
-   cd setup
-    chmod +x setyp.py
-    cd ..
-    
-httpscreenshot
-https://github.com/breenmachine/httpscreenshot/
+ git clone https://github.com/ChrisTruncer/EyeWitness
+  cd Eyewitness
+   cd Python
+    cd setup
+     chmod +x setyp.py
+echo install EyeWitness
+      ./setup.py
+     cd ..
 
+httpscreenshot
+ git clone https://github.com/breenmachine/httpscreenshot.git
+  cd httpscreenshot
+   chmod +x install-dependencies.sh
+    sudo ./install-dependencies.sh
+    cd ..
 ##Web Discovery
 
-DirBuster
-https://sourceforge.net/projects/dirbuster/
-dirb
-http://dirb.sourceforge.net/
-ilebuster
-https://github.com/henshin/filebuster
+#Dirbstalk
+mkdir Dirstalk
+ cd Dirstalk
+  echo downlading Dirstalk from git hub
+   wget https://github.com/stefanoj3/dirstalk/releases/download/1.3.2/dirstalk_1.3.2_Linux_x86_64.tar.gz
+    tar -xzf dirstalk_1.3.2_Linux_x86_64.tar.gz
+echo and some wordlist's to
+  git clone https://github.com/dustyfresh/dictionaries.git
+    cd ..
+
+#dirb
+#http://dirb.sourceforge.net/
+
+#filebuster
+echo downloading filebuster from github
+git clone https://github.com/henshin/filebuster.git
+ cd filebuster
+echo configure TP apps putt YES
+  cpan -T install YAML Furl Benchmark Net::DNS::Lite List::MoreUtils /
+  IO::Socket::SSL URI::Escape HTML::Entities IO::Socket::Socks::Wrapper /
+  URI::URL Cache::LRU IO::Async::Timer::Periodic IO::Async::Loop
+
+echo making a softlink
+  # ln -s /path/to/filebuster.pl /usr/local/bin/filebuster
+  cd ..
+
 gobuster
-https://github.com/OJ/gobuster
+#https://github.com/OJ/gobuster.git
+go get github.com/OJ/gobuster
+cd /home/fluff/go/src/github.com/OJ/gobuster
+go get && go build
+make linux
+sudo make linux install
+cd
+
+cd /Tools
+
 dirsearch
-https://github.com/maurosoria/dirsearch
+echo downloading dirsearch from github
+git clone https://github.com/maurosoria/dirsearch.git
 
 ##Github
 
-Gitrob
-https://github.com/michenriksen/gitrob
-git-all-secrets
-https://github.com/anshumanbh/git-all-secrets
-truffleHog
-https://github.com/dxa4481/truffleHog
-git-secrets
-https://github.com/awslabs/git-secrets
-repo-supervisor
-https://github.com/auth0/repo-supervisor
+#Gitrob
+#https://github.com/michenriksen/gitrob
+echo downloading gitrob from github
+go get github.com/michenriksen/gitrob
+
+#git-all-secrets
+#https://github.com/anshumanbh/git-all-secrets
+#truffleHog
+#https://github.com/dxa4481/truffleHog
+#git-secrets
+#https://github.com/awslabs/git-secrets
+#repo-supervisor
+#https://github.com/auth0/repo-supervisor
 
 ##S3
 
 sandcastle
-https://github.com/yasinS/sandcastle
+git clone https://github.com/0xSearches/sandcastle.git
+
 bucket_finder
 https://digi.ninja/projects/bucket_finder.php
+
+inSp3ctor
+git clone https://github.com/brianwarehime/inSp3ctor.git
 
 ##Google Dorks
 
@@ -134,8 +182,8 @@ https://github.com/ZephrFish/GoogD0rker/
 
 ##Hidden parameters
 
-parameth
-https://github.com/mak-/parameth
+#parameth
+#https://github.com/mak-/parameth
 
 ##Old content
 
