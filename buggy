@@ -1,0 +1,641 @@
+
+sudo apt update && sudo apt full-upgrade -y
+sudo apt install git curl wget gdebi python-virtualenv python-pip gcc make libpcap-dev
+
+
+echo "[*] Install Chrome.[*]"
+wget -N https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/
+dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
+apt-get -f install -y
+dpkg -i --force-depends ~/google-chrome-stable_current_amd64.deb
+
+echo "[*] Install Ruby[*]"
+apt-get -qq install gnupg2 -y
+curl -sSL https://rvm.io/mpapis.asc | gpg --import -
+curl -L https://get.rvm.io | bash -s stable --ruby
+echo "source /usr/local/rvm/scripts/rvm" >> ~/.bashrc
+
+
+
+#####Recon
+
+##DNS Discovery
+
+#Sublist3r
+git clone https://github.com/aboul3la/Sublist3r.git
+  cd Sublist3r
+    sudo pip install -r requirements.txt
+
+
+#enumall
+#PREESTEPS
+#recon-ng
+  git clone https://LaNMaSteR53@bitbucket.org/LaNMaSteR53/recon-ng.git
+    cd recon-ng
+      pip install -r REQUIREMENTS
+        ln -s /$recon-ng_path /usr/share/recon-ng
+         cd ..
+#alt-dns
+  git clone https://github.com/infosec-au/altdns.git
+   cd altdns
+    pip install py-altdns
+#wordlist's
+      git clone https://github.com/danielmiessler/SecLists/blob/master/Discovery/DNS/sortedcombined-knock-dnsrecon-fierce-reconng.txt
+        echo edit the congig file and specify the path to recon and alt-dns
+         cd ..
+#enumall
+  git clone https://github.com/jhaddix/domain.git
+
+#massdns
+git clone https://github.com/blechschmidt/massdns.git
+
+#brutesubs
+git clone https://github.com/anshumanbh/brutesubs.git
+
+#dns-parallel-prober
+gir clone https://github.com/lorenzog/dns-parallel-prober.git
+  pip install -r requirements.txt
+
+#dnscan
+git clone https://github.com/rbsec/dnscan.git
+ pip install -r requirements.txt
+
+#Knockpy
+git clone https://github.com/guelfoweb/knock.git
+  cd knock
+   sudo pip install https://github.com/guelfoweb/knock/archive/knock4.zip
+
+
+##Port scan
+
+#nmap
+sudo apt install nmap
+
+#masscan
+git clone https://github.com/robertdavidgraham/masscan.git
+ cd masscan
+  make -j
+   make install
+
+##Screenshots
+
+EyeWitness
+https://github.com/ChrisTruncer/EyeWitness
+httpscreenshot
+https://github.com/breenmachine/httpscreenshot/
+
+##Web Discovery
+
+DirBuster
+https://sourceforge.net/projects/dirbuster/
+dirb
+http://dirb.sourceforge.net/
+ilebuster
+https://github.com/henshin/filebuster
+gobuster
+https://github.com/OJ/gobuster
+dirsearch
+https://github.com/maurosoria/dirsearch
+
+##Github
+
+Gitrob
+https://github.com/michenriksen/gitrob
+git-all-secrets
+https://github.com/anshumanbh/git-all-secrets
+truffleHog
+https://github.com/dxa4481/truffleHog
+git-secrets
+https://github.com/awslabs/git-secrets
+repo-supervisor
+https://github.com/auth0/repo-supervisor
+
+##S3
+
+sandcastle
+https://github.com/yasinS/sandcastle
+bucket_finder
+https://digi.ninja/projects/bucket_finder.php
+
+##Google Dorks
+
+Goohak
+https://github.com/1N3/Goohak/
+GoogD0rker
+https://github.com/ZephrFish/GoogD0rker/
+
+##Hidden parameters
+
+parameth
+https://github.com/mak-/parameth
+
+##Old content
+
+Wayback Machine
+https://web.archive.org
+waybackrobots
+https://gist.github.com/mhmdiaa/2742c5e147d49a804b408bfed3d32d07
+waybackurls
+https://gist.github.com/mhmdiaa/adf6bff70142e5091792841d4b372050
+Google (with the time filter on)
+https://google.com
+
+##Asset identification
+
+Shodan
+https://shodan.io/
+Internet Wide Scan Data
+http://Repositoryscans.io
+censys
+https://censys.io
+Hurricane Electric
+http://bgp.he.net/
+
+##Frameworks
+
+Name 	Link
+Kubebot
+https://github.com/anshumanbh/kubebot
+Intrigue
+https://github.com/intrigueio/intrigue-core
+Sn1per
+https://github.com/1N3/Sn1per/
+scantastic-tool
+https://github.com/maK-/scantastic-tool/
+XRay
+https://github.com/evilsocket/xray
+datasploit
+https://github.com/DataSploit/datasploit
+Inquisitor
+https://github.com/penafieljlm/inquisitor
+Spiderfoot
+https://github.com/smicallef/spiderfoot
+
+
+###Exploiting & Scanning
+
+##XSS
+
+XSS-Radar
+https://github.com/bugbountyforum/XSS-Radar
+XSSHunter
+https://github.com/mandatoryprogrammer/xsshunter
+xsshunter_client
+https://github.com/mandatoryprogrammer/xsshunter_client
+domxssscanner
+https://github.com/yaph/domxssscanner
+XSSer
+https://github.com/epsylon/xsser
+BruteXSS
+https://github.com/rajeshmajumdar/BruteXSS
+XSStrike
+https://github.com/UltimateHackers/XSStrike
+XSS'OR
+http://xssor.io/
+
+##SQLi
+
+sqlmap
+http://sqlmap.org/
+
+##XXE
+
+oxml_xxe
+https://github.com/BuffaloWill/oxml_xxe/
+XXE Injector
+https://github.com/enjoiz/XXEinjector
+
+##SSRF
+
+ssrfDetector
+https://github.com/JacobReynolds/ssrfDetector
+ground-control
+https://github.com/jobertabma/ground-control
+
+##SSTI
+
+tplmap
+https://github.com/epinna/tplmap
+
+##LFI
+
+LFISuit
+https://github.com/D35m0nd142/LFISuite
+
+##File upload
+
+gen_xbin_avi
+https://github.com/neex/ffmpeg-avi-m3u-xbin/
+
+##Exposed Git/SVN directory
+
+GitTools
+https://github.com/internetwache/GitTools
+dvcs-ripper
+https://github.com/kost/dvcs-ripper
+
+##Subdomain takeover
+
+tko-subs
+https://github.com/anshumanbh/tko-subs
+HostileSubBruteforcer
+https://github.com/nahamsec/HostileSubBruteforcer
+second-order
+https://github.com/mhmdiaa/second-order
+
+##Race conditions
+
+Race the Web
+https://github.com/insp3ctre/race-the-web
+
+##CORS misconfiguration
+
+CORStest
+https://github.com/RUB-NDS/CORStest
+
+##Struts
+
+RCE struts-pwn
+https://github.com/mazen160/struts-pwn
+
+##Serialization
+
+ysoserial
+https://github.com/GoSecure/ysoserial
+PHPGGC
+https://github.com/ambionics/phpggc
+
+##Known vulnerable software
+
+retire-js
+https://github.com/RetireJS/retire.js
+getsploit
+https://github.com/vulnersCom/getsploit
+Findsploit
+https://github.com/1N3/Findsploit
+
+##Default/config files
+
+bfac
+https://github.com/mazen160/bfac
+
+##CMS
+
+WPScan
+https://wpscan.org/
+CMSMap
+https://github.com/Dionach/CMSmap
+joomscan
+https://github.com/rezasp/joomscan
+
+##JWT
+
+The JSON Web Token Toolkit
+https://github.com/ticarpi/jwt_tool
+
+
+###Fuzzing
+
+##General
+
+wfuzz
+https://github.com/xmendez/wfuzz/
+patator
+https://github.com/lanjelot/patator
+
+##Bruteforcing
+
+hydra
+https://github.com/vanhauser-thc/thc-hydra
+changeme
+https://github.com/ztgrace/changeme
+
+
+###Fingerprinting
+
+##Server Software
+
+whatweb
+https://github.com/urbanadventurer/whatweb
+wappalyzer
+https://wappalyzer.com/
+builtwith
+https://builtwith.com/
+
+##WAF
+
+wafw00f
+https://github.com/EnableSecurity/wafw00f
+
+
+##decompilers
+
+##Flash
+
+Show My Code
+http://www.showmycode.com/
+JPEXS Free Flash Decompiler
+http://www.showmycode.com/
+
+
+###Monitoring
+
+##General
+
+assetnote
+https://github.com/infosec-au/assetnote
+
+
+##JS Parsing
+
+#Beautification
+
+jsbeautifier
+http://jsbeautifier.org/
+
+##endpoint extraction
+
+LinkFinder
+https://github.com/GerbenJavado/LinkFinder
+
+
+##Mobile testing
+
+##Frameworks
+
+MobSF
+https://github.com/MobSF/Mobile-Security-Framework-MobSF/
+
+##Emulators
+
+GenyMotion
+https://www.genymotion.com/
+Android Studio
+https://developer.android.com/studio/
+
+##Decompilers
+
+Apktool
+https://github.com/iBotPeaches/Apktool
+dex2jar
+https://sourceforge.net/projects/dex2jar/
+jd-gui
+https://github.com/java-decompiler/jd-gui
+
+##Misc
+
+idb
+https://github.com/dmayer/idb
+
+##BLANDADE APPS
+
+# GetAllUrls
+export GOPATH=/opt/gau
+go get -u github.com/lc/gau
+ln -s /opt/gau/bin/gau /usr/local/bin/gau
+
+# Fnds
+export GOPATH=/opt/fdns
+go get -u github.com/jimen0/fdns/cmd/fdns
+ln -s /opt/fdns/bin/fdns /usr/local/bin/fdns
+
+# Ffuf
+export GOPATH=/opt/ffuf
+go get -u github.com/ffuf/ffuf
+ln -s /opt/ffuf/bin/ffuf /usr/local/bin/ffuf
+
+# Hakrawler
+export GOPATH=/opt/hakrawler
+go get github.com/hakluke/hakrawler
+ln -s /opt/hakrawler/bin/hakrawler /usr/local/bin/hakrawler
+
+# HTTProbe
+export GOPATH=/opt/httprobe
+go get -u github.com/tomnomnom/httprobe
+ln -s /opt/httprobe/bin/httprobe /usr/local/bin/httprobe
+
+# Meg
+export GOPATH=/opt/meg
+go get -u github.com/tomnomnom/meg
+ln -s /opt/meg/bin/meg /usr/local/bin/meg
+
+# Megurl
+export GOPATH=/opt/megurl
+go get -u github.com/3lpsy/megurl
+ln -s /opt/megurl/bin/megurl /usr/local/bin/megurl
+
+# Waybackurls
+export GOPATH=/opt/waybackurls
+go get -u github.com/tomnomnom/waybackurls
+ln -s /opt/waybackurls/bin/waybackurls /usr/local/bin/waybackurls
+
+# Gf
+export GOPATH=/opt/gf
+go get -u github.com/tomnomnom/gf
+ln -s /opt/gf/bin/gf /usr/local/bin/gf
+#source /opt/gf/src/github.com/tomnomnom/gf/gf-completion.bash
+
+# Assetfinder
+export GOPATH=/opt/assetfinder
+go get -u github.com/tomnomnom/assetfinder
+ln -s /opt/assetfinder/bin/assetfinder /usr/local/bin/assetfinder
+
+# Anew
+export GOPATH=/opt/anew
+go get -u github.com/tomnomnom/anew
+ln -s /opt/anew/bin/anew /usr/local/bin/anew
+
+# Shhgit
+export GOPATH=/opt/shhgit
+go get -u github.com/eth0izzle/shhgit
+ln -s /opt/shhgit/bin/shhgit /usr/local/bin/shhgit
+
+# Html-tool
+export GOPATH=/opt/html-tool
+go get -u github.com/tomnomnom/hacks/html-tool
+ln -s /opt/html-tool/bin/html-tool /usr/local/bin/html-tool
+
+# Gowitness
+export GOPATH=/opt/gowitness
+go get -u github.com/sensepost/gowitness
+ln -s /opt/gowitness/bin/gowitness /usr/local/bin/gowitness
+
+# Retire.js
+apt-get install -y npm
+npm install -g retire
+
+# Stegoveritas
+apt-get install -y libimage-exiftool-perl libexempi8
+pip3 install stegoveritas
+
+# Altdns
+pip install py-altdns
+
+# Findomain
+mkdir /opt/findomain
+wget https://github.com/Edu4rdSHL/findomain/releases/latest/download/findomain-linux -O /opt/findomain/findomain
+chmod +x /opt/findomain/findomain
+ln -s /opt/findomain/findomain /usr/local/bin/findomain
+
+# Google Chrome
+cd /tmp
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+apt-get install -y ./google-chrome-stable_current_amd64.deb
+rm google-chrome-stable_current_amd64.deb
+
+# MassDNS
+apt-get install -y gcc make libpcap-dev
+git clone https://github.com/blechschmidt/massdns.git /opt/massdns || git -C /opt/massdns pull
+cd /opt/massdns
+make
+ln -s /opt/massdns/bin/massdns /usr/local/bin/massdns
+
+# Masscan
+apt-get install -y gcc make libpcap-dev
+git clone https://github.com/robertdavidgraham/masscan /opt/masscan || git -C /opt/masscan pull
+cd /opt/masscan
+make
+ln -s /opt/masscan/bin/masscan /usr/local/bin/masscan
+
+# AsnLookup
+git clone https://github.com/yassineaboukir/Asnlookup /opt/asnlookup || git -C /opt/asnlookup pull
+pip3 install -r /opt/asnlookup/requirements.txt
+ln -s /opt/asnlookup/asnlookup.py /usr/local/bin/asnlookup
+chmod +x /usr/local/bin/asnlookup
+
+# Dnsgen
+git clone https://github.com/ProjectAnte/dnsgen /opt/dnsgen || git -C /opt/dnsgen pull
+pip3 install -r /opt/dnsgen/requirements.txt
+python3 /opt/dnsgen/setup.py install
+
+# Hash-Buster
+git clone https://github.com/s0md3v/Hash-Buster.git /opt/hashbuster || git -C /opt/hashbuster pull
+ln -s /opt/hashbuster/hash.py /usr/local/bin/hashbuster
+chmod +x /usr/local/bin/hashbuster
+
+# Bolt
+git clone https://github.com/s0md3v/Bolt.git /opt/bolt || git -C /opt/bolt pull
+pip3 install -r /opt/bolt/requirements.txt
+ln -s /opt/bolt/bolt.py /usr/local/bin/bolt
+chmod +x /usr/local/bin/bolt
+
+# Photon
+git clone https://github.com/s0md3v/Photon.git /opt/photon || git -C /opt/photon pull
+pip3 install -r /opt/photon/requirements.txt
+ln -s /opt/photon/photon.py /usr/local/bin/photon
+chmod +x /usr/local/bin/photon
+
+# XSStrike
+git clone https://github.com/s0md3v/XSStrike.git /opt/xsstrike || git -C /opt/xsstrike pull
+pip3 install -r /opt/xsstrike/requirements.txt
+ln -s /opt/xsstrike/xsstrike.py /usr/local/bin/xsstrike
+chmod +x /usr/local/bin/xsstrike
+
+# Arjun
+git clone https://github.com/s0md3v/Arjun.git /opt/arjun || git -C /opt/arjun pull
+ln -s /opt/arjun/arjun.py /usr/local/bin/arjun
+chmod +x /usr/local/bin/arjun
+
+# DNSExfiltrator
+git clone https://github.com/Arno0x/DNSExfiltrator.git /opt/dnsexfiltrator || git -C /opt/dnsexfiltrator pull
+pip install -r /opt/dnsexfiltrator/requirements.txt
+ln -s /opt/dnsexfiltrator/dnsexfiltrator.py /usr/local/bin/dnsexfiltrator
+chmod +x /usr/local/bin/dnsexfiltrator
+
+# Impacket
+git clone https://github.com/rxwx/impacket.git /opt/impacket || git -C /opt/impacket pull
+pip3 install -r /opt/impacket/requirements.txt
+pip3 install /opt/impacket/
+
+# Evil-winrm
+gem install evil-winrm
+
+# Stego Toolkit
+docker pull dominicbreuker/stego-toolkit
+
+# Powershell NTLM
+docker pull quickbreach/powershell-ntlm
+
+# Bloodhound
+git clone https://github.com/BloodHoundAD/BloodHound.git /opt/bloodhound || git -C /opt/bloodhound pull
+
+# PowerSploit
+git clone https://github.com/PowerShellMafia/PowerSploit.git /opt/powersploit || git -C /opt/powersploit pull
+
+# JAWS
+git clone https://github.com/411Hall/JAWS.git /opt/jaws || git -C /opt/jaws pull
+
+# Nishang
+git clone https://github.com/samratashok/nishang.git /opt/nishang || git -C /opt/nishang pull
+
+echo "[*] Expired Domain Take Overs [*]"
+git clone https://github.com/JordyZomer/autoSubTakeover.git
+cd autoSubTakeover
+pip install -r requirements.txt
+cd ..
+
+echo "[*] Go Buster [*]"
+wget https://github.com/OJ/gobuster/archive/v1.3.tar.gz
+tar xzvf v1.3.tar.gz
+mv gobuster-1.3 go-buster
+cd go-buster
+wget https://gist.github.com/jhaddix/86a06c5dc309d08580a018c66354a056/raw/all.txt
+go build
+chmod 777 gobuster
+cd ..
+
+echo "[*] Sub Brute [*]"
+git clone https://github.com/TheRook/subbrute.git
+cd..
+
+echo "[*] dirsearch mass [*]"
+wget https://gist.githubusercontent.com/random-robbie/b8fad5cbff2c5dbcb3470b6cd0c6d635/raw/dirsearch_it.sh -O /bin/dirsearch
+chmod 777 /bin/dirsearch
+
+echo "[*] install aquatone [*]"
+gem install aquatone
+
+echo "[*] pip install angularjs xss[*]"
+git clone -b develop https://github.com/tijme/angularjs-csti-scanner.git
+cd angularjs-csti-scanner
+pip install -r requirements.txt
+python setup.py install
+wget "https://raw.githubusercontent.com/random-robbie/docker-dump/master/mass-angularjs-csti-scanner/mass-scan" -o /bin/mass-scan
+wget "https://raw.githubusercontent.com/random-robbie/docker-dump/master/mass-angularjs-csti-scanner/scan" -o /bin/scan
+chmod 777 /bin/scan
+chmod 777 /bin/mass-scan
+cd ..
+
+echo "[*] install crlf injection[*]"
+git clone https://github.com/random-robbie/CRLF-Injection-Scanner.git
+cd CRLF-Injection-Scanner
+pip install colored eventlet
+cd ..
+
+
+
+##Proxy Plugins
+
+#Burp suite
+Name
+backslash-powered-scanner
+reflected parameters
+SAML Encoder/Decoder
+Bypass WAF
+CVSS Calculator
+Java deserialization Scanner
+Autorize
+BurpSmartBuster
+Content Type Converter
+JSON Beautifier
+PsychoPATH
+Retire-js
+J2EEScan
+SAML Raider
+Active Scan++
+UUID Detector
+Additional Scanner Checks
+CO2 Flow
+Hackvertor
+Meth0dMan
+Paramalyzer
