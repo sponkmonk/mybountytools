@@ -31,7 +31,7 @@ mkdir /opt/$mydirectory/social_engineering
 
 #install some shit
 sudo apt install git curl wget gdebi python-virtualenv /
-python-pip gcc make libpcap-dev golang-go
+python3-pip gcc make libpcap-dev golang-go
 
 #install metasploit
 echo "[*]gather the metasploit repository"
@@ -69,7 +69,7 @@ cd /opt/$mydirectory
 #Sublist3r
 git clone https://github.com/aboul3la/Sublist3r.git
 cd Sublist3r
-sudo pip install -r requirements.txt
+sudo pip3 install -r requirements.txt
 
 #enumall
 #PREESTEPS
@@ -84,7 +84,7 @@ echo "downloading alt-dns from github"
 git clone https://github.com/infosec-au/altdns.git
 cd altdns
 echo "installing alt-dns"
-pip install py-altdns
+sudo pip3 install py-altdns
 
 #wordlist's
 echo "adding som wordlist's"
@@ -103,19 +103,19 @@ git clone https://github.com/anshumanbh/brutesubs.git
 #dns-parallel-prober
 gir clone https://github.com/lorenzog/dns-parallel-prober.git
 cd dns-parallel-prober
-pip install -r requirements.txt
+sudo pip3 install -r requirements.txt
 cd ..
 
 #dnscan
 git clone https://github.com/rbsec/dnscan.git
 cd dnscan
-pip install -r requirements.txt
+sudo pip3 install -r requirements.txt
 cd ..
 
 #Knockpy
 git clone https://github.com/guelfoweb/knock.git
 cd knock
-sudo pip install https://github.com/guelfoweb/knock/archive/knock4.zip
+sudo python3 setup.py install
 cd ..
 ##Port scan
 
@@ -125,7 +125,7 @@ sudo apt install nmap
 #masscan
 git clone https://github.com/robertdavidgraham/masscan.git
 cd masscan
-make -j
+sudo make -j
 sudo make install
 cd ..
 
@@ -138,7 +138,7 @@ cd Python
 cd setup
 chmod +x setyp.py
 echo install EyeWitness
-./setup.py
+sudo ./setup.py
 cd ..
 
 httpscreenshot
@@ -167,12 +167,10 @@ echo downloading filebuster from github
 git clone https://github.com/henshin/filebuster.git
 cd filebuster
 echo "configure TP apps putt YES"
-cpan -T install YAML Furl Benchmark Net::DNS::Lite List::MoreUtils /
-IO::Socket::SSL URI::Escape HTML::Entities IO::Socket::Socks::Wrapper /
-URI::URL Cache::LRU IO::Async::Timer::Periodic IO::Async::Loop
+cpan -T install YAML Furl Benchmark Net::DNS::Lite List::MoreUtils IO::Socket::SSL URI::Escape HTML::Entities IO::Socket::Socks::Wrapper URI::URL Cache::LRU IO::Async::Timer::Periodic IO::Async::Loop
 
 echo "making a softlink"
-# ln -s /path/to/filebuster.pl /usr/local/bin/filebuster
+# sudo ln -s /path/to/filebuster.pl /usr/local/bin/filebuster
 cd ..
 
 gobuster
@@ -220,9 +218,9 @@ git clone https://github.com/brianwarehime/inSp3ctor.git
 ##Google Dorks
 
 Goohak
-https://github.com/1N3/Goohak/
+git clone https://github.com/1N3/Goohak/
 GoogD0rker
-https://github.com/ZephrFish/GoogD0rker/
+git clone https://github.com/ZephrFish/GoogD0rker/
 
 ##Hidden parameters
 
@@ -242,61 +240,80 @@ https://google.com
 
 ##Asset identification
 
-Shodan
-https://shodan.io/
-Internet Wide Scan Data
-http://Repositoryscans.io
-censys
-https://censys.io
-Hurricane Electric
-http://bgp.he.net/
+
+#Shodan
+git clone https://github.com/achillean/shodan-python.git
+cd shodan-python
+sudo pip3 install shodansudo pip3 install shodansudo pip3 install shodan
+#censys
+git clone https://github.com/christophetd/censys-subdomain-finder.git
+cd censys-subdomain-finder
+sudo pip3 install -r requirements.txt
+#cloudflare
+git clone https://github.com/christophetd/cloudflair.git
+cd Cloudflare
+sudo pip3 install -r requirements.txt
+
 
 ##Frameworks
 
-Name 	Link
-Kubebot
-https://github.com/anshumanbh/kubebot
-Intrigue
-https://github.com/intrigueio/intrigue-core
-Sn1per
-https://github.com/1N3/Sn1per/
-scantastic-tool
-https://github.com/maK-/scantastic-tool/
-XRay
-https://github.com/evilsocket/xray
-datasploit
-https://github.com/DataSploit/datasploit
-Inquisitor
-https://github.com/penafieljlm/inquisitor
-Spiderfoot
-https://github.com/smicallef/spiderfoot
+#Intrigue
+#https://github.com/intrigueio/intrigue-core
+docker pull intrigueio/intrigue-core
 
+#Sn1per
+git clone https://github.com/1N3/Sn1per/
+docker pull xerosecurity/sn1per
+
+#datasploit
+docker pull appsecco/datasploit
+
+
+#Spiderfoot
+git clone https://github.com/smicallef/spiderfoot
+cd sproderfoot
+docker build -t spiderfoot .
 
 ###Exploiting & Scanning
 
 ##XSS
 
 XSS-Radar
-https://github.com/bugbountyforum/XSS-Radar
-XSSHunter
-https://github.com/mandatoryprogrammer/xsshunter
-xsshunter_client
-https://github.com/mandatoryprogrammer/xsshunter_client
-domxssscanner
-https://github.com/yaph/domxssscanner
-XSSer
-https://github.com/epsylon/xsser
-BruteXSS
-https://github.com/rajeshmajumdar/BruteXSS
-XSStrike
-https://github.com/UltimateHackers/XSStrike
-XSS'OR
-http://xssor.io/
+git clone https://github.com/bugbountyforum/XSS-Radar
+#XSSHunter
+#https://github.com/mandatoryprogrammer/xsshunter
+#xsshunter_client
+#https://github.com/mandatoryprogrammer/xsshunter_client
+#domxssscanner
+#https://github.com/yaph/domxssscanner
+
+#XSSer
+git clone https://github.com/epsylon/xsser
+cd xsser
+chmod +x setup.py
+sudo python3 setup.py install
+
+#XSStrike
+git clone https://github.com/UltimateHackers/XSStrike
+
+#XSS'OR2
+#http://xssor.io/
+git clone https://github.com/evilcos/xssor2.git
+cd xssor2
+
 
 ##SQLi
 
-sqlmap
-http://sqlmap.org/
+#sqlmap
+#http://sqlmap.org/
+sudo apt install sqlmap
+
+#Nosqlmap
+git clone https://github.com/codingo/NoSQLMap.git
+cd NoSQLMap
+sudo python3 setup.py install
+cd docker
+sudo docker build -t nosqlmap .
 
 ##XXE
 
